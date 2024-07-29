@@ -1,6 +1,5 @@
 import { ChildProcess, spawn } from 'child_process';
 import task from 'tasuku';
-import { red } from 'kolorist';
 
 const args = process.argv.slice(2);
 
@@ -22,20 +21,11 @@ task('', async ({ setTitle, setStatus, setOutput }) => {
     times = 0,
     succ = 0,
     fail = 0;
-  const errors = new Set<string>();
 
   const update = () => {
     setTitle([`Running iteration ${i + 1}`, n === Infinity ? '' : `/${n}`, ', ', fTime(performance.now() - start)].join(''));
 
     const output = [`Successful: ${Math.round((succ / i) * 100)}%`, ` (${succ}:${fail})`, `, `, `average time: ${fTime(times / i)}`];
-
-    for (const error of errors) {
-      let oneliner = error.trim().replace(/\n/g, ' ');
-      if (oneliner.length > 30) {
-        oneliner = oneliner.slice(0, 30) + '...';
-      }
-      output.push(red(`\n  error: ${oneliner}`));
-    }
 
     if (i > 0) {
       setOutput(output.join(''));
@@ -90,7 +80,8 @@ task('', async ({ setTitle, setStatus, setOutput }) => {
     } else {
       fail++;
       if (combinedOutput) {
-        errors.add(combinedOutput);
+        console.error('error:', combinedOutput);
+        console.error('##############################################');
       }
     }
 
