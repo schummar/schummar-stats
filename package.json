@@ -1,17 +1,17 @@
 {
   "name": "schummar-stats",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "",
   "main": "src/main.ts",
   "bin": "dist/cli.js",
   "scripts": {
-    "start": "esbuild-dev -s src/cli.ts -n=10 sleep 1",
+    "start": "tsx src/cli.ts -n=10 sleep 1",
     "test": "runp test:*",
     "test:prettier": "prettier -l src/**",
     "test:eslint": "eslint src/**",
     "build": "runp :s build:*",
     "build:clean": "rimraf dist/**",
-    "build:compile": "esbuild --platform=node --bundle --outdir=dist src/cli.ts",
+    "build:compile": "tsup src/cli.ts",
     "prepublishOnly": "runp :s test build"
   },
   "keywords": [],
@@ -21,16 +21,19 @@
     "@schummar/runp": "^2.0.3",
     "@types/node": "^20.14.11",
     "@typescript-eslint/eslint-plugin": "^7.16.1",
-    "esbuild": "^0.23.0",
-    "esbuild-dev": "^0.10.0",
     "eslint": "^8.57.0",
     "kolorist": "^1.8.0",
     "prettier": "^3.3.3",
     "rimraf": "^6.0.1",
     "tasuku": "^2.0.1",
+    "tsup": "^8.2.3",
+    "tsx": "^4.16.2",
     "typescript": "^5.5.3"
   },
   "files": [
     "dist"
-  ]
+  ],
+  "dependencies": {
+    "yoga-layout-prebuilt": "^1.10.0"
+  }
 }
