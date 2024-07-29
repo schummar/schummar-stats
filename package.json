@@ -18,16 +18,17 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@types/node": "^17.0.8",
-    "@typescript-eslint/eslint-plugin": "^5.9.1",
-    "esbuild": "^0.14.11",
-    "esbuild-dev": "^0.9.1",
-    "eslint": "^8.6.0",
+    "@types/node": "^20.14.11",
+    "@typescript-eslint/eslint-plugin": "^7.16.1",
+    "esbuild": "^0.23.0",
+    "esbuild-dev": "^0.10.0",
+    "eslint": "^8.57.0",
+    "kolorist": "^1.8.0",
     "npm-run-all": "^4.1.5",
-    "prettier": "^2.5.1",
-    "rimraf": "^3.0.2",
-    "tasuku": "^1.0.2",
-    "typescript": "^4.5.4"
+    "prettier": "^3.3.3",
+    "rimraf": "^6.0.1",
+    "tasuku": "^2.0.1",
+    "typescript": "^5.5.3"
   },
   "files": [
     "dist"
